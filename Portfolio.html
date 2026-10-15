@@ -1,0 +1,814 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Muhammadur Rahman Swapnil | Personal Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./Image/png-transparent-man-using-laptop-illustration-web-development-web-developer-web-design-web-development-text-computer-presentation.png">
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --text: #20211f;
+      --muted: #777972;
+      --accent: #c7f36b;
+      --card: #ffffff;
+      --border: #e7e7e1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 247, 244, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #789c27;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #6d8c22;
+    }
+
+    .nav-cta, .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
+      color: white;
+      border-radius: 50px;
+      padding: 12px 21px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform .2s, background .2s;
+    }
+
+    .nav-cta:hover, .button:hover {
+      background: #41453a;
+      transform: translateY(-2px);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 95px 0 85px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 8px 13px;
+      border-radius: 50px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #83bd42;
+      box-shadow: 0 0 0 4px #83bd4220;
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5.5vw, 68px);
+      max-width: 620px;
+    }
+
+    .highlight {
+      display: inline;
+      background: linear-gradient(transparent 68%, var(--accent) 68%);
+    }
+
+    .hero-description {
+      max-width: 490px;
+      color: var(--muted);
+      margin: 25px 0 30px;
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #d8d9d0;
+    }
+
+    .button-outline:hover {
+      color: white;
+    }
+
+    .hero-visual {
+      position: relative;
+      max-width: 400px;
+      width: 100%;
+      justify-self: end;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 4 / 4.7;
+      object-fit: cover;
+      border-radius: 180px 180px 24px 24px;
+      background: #e2e7d7;
+      display: block;
+    }
+
+    .floating-card {
+      position: absolute;
+      left: -38px;
+      bottom: 35px;
+      background: white;
+      padding: 17px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px #00000010;
+    }
+
+    .floating-card strong {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 24px;
+      display: block;
+    }
+
+    .floating-card span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: -20px;
+      top: 35px;
+      background: var(--accent);
+      width: 83px;
+      height: 83px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      transform: rotate(12deg);
+    }
+
+    /* Shared sections */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+
+    .eyebrow {
+      color: #718c35;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 45px);
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 370px;
+      font-size: 14px;
+    }
+
+    /* Projects */
+    .projects {
+      background: #efefe9;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid #e9e9e2;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px #0000000b;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      display: block;
+      background: #e4e8dc;
+    }
+
+    .project-info {
+      padding: 23px;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .project-tag {
+      font-size: 11px;
+      background: #f0f4e7;
+      padding: 5px 10px;
+      border-radius: 30px;
+    }
+
+    .project-number {
+      color: #a1a29b;
+      font-size: 12px;
+    }
+
+    .project-info h3 {
+      font-size: 22px;
+      letter-spacing: -.5px;
+      margin-bottom: 8px;
+    }
+
+    .project-info p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin: 18px 0;
+      font-size: 15px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 9px 15px;
+      font-size: 12px;
+      background: white;
+    }
+
+    .about-panel {
+      background: #22241f;
+      color: white;
+      border-radius: 22px;
+      padding: 32px;
+    }
+
+    .about-panel h3 {
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 17px 0;
+      border-bottom: 1px solid #ffffff22;
+    }
+
+    .stat:last-child {
+      border-bottom: none;
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: #c0c2b9;
+    }
+
+    .stat strong {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--accent);
+    }
+
+    .contact-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .contact h2 {
+      max-width: 600px;
+      margin-bottom: 18px;
+    }
+
+    .contact p {
+      color: #505844;
+      font-size: 14px;
+    }
+
+    .contact .button {
+      background: #22241f;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    footer {
+      padding: 25px 0;
+      background: #22241f;
+      color: #c4c6bd;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer p, footer a {
+      font-size: 12px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 760px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links li:nth-child(2),
+      .nav-links li:nth-child(3) {
+        display: none;
+      }
+
+      .nav-cta {
+        padding: 10px 14px;
+        font-size: 12px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding: 65px 0;
+      }
+
+      .hero-visual {
+        justify-self: center;
+        max-width: 330px;
+      }
+
+      .floating-card {
+        left: -10px;
+      }
+
+      .hero-badge {
+        right: -8px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        height: 240px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .contact-inner {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: 92%;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .nav-links {
+        gap: 10px;
+        font-size: 12px;
+      }
+
+      .hero-buttons .button {
+        padding: 11px 15px;
+      }
+
+      .floating-card {
+        padding: 12px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">Ali Muhammadur Rahman Swapnil<span>.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+
+      <a
+  class="nav-cta"
+  href="https://wa.me/8801852733602?text=I want to work with you "
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Let's Talk ↗
+</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <div class="container">
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <div class="availability">
+            <span class="dot"></span>
+            Available for freelance work
+          </div>
+
+          <h1>
+            Hello, I'm Ali Muhammadur Rahman Swapnil.
+            <br>
+            I create <span class="highlight">digital experiences.</span>
+          </h1>
+
+          <p class="hero-description">
+            I'm a creative designer and aspiring web developer
+            passionate about building beautiful, useful, and
+            user-friendly digital experiences.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="button" href="#projects">Explore My Work ↘</a>
+            <a class="button button-outline" href="https://wa.me/8801852733602?text=I want to work with you"
+                      target="_blank"  rel="noopener noreferrer">Contact Me ↗</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Replace this image with your own photo -->
+          <img
+            class="portrait"
+            src="https://images.pexels.com/photos/40283667/pexels-photo-40283667.jpeg"
+            alt="Portrait of a creative professional"
+          >
+
+          <div class="floating-card">
+            <strong>Creative</strong>
+            <span>Designing with purpose</span>
+          </div>
+
+          <div class="hero-badge">
+            DESIGN<br>CREATE<br>GROW ✳
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>Things I've created.</h2>
+          </div>
+
+          <p class="section-description">
+            A collection of practice projects and creative concepts
+            that showcase my skills and design approach.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <img
+              class="project-image"
+              src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1000&q=85"
+              alt="Creative branding and graphic design"
+              loading="lazy"
+            >
+
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-tag">Graphic Design</span>
+                <span class="project-number">01 / 04</span>
+              </div>
+
+              <h3>Brand Identity Concept</h3>
+              <p>
+                A fictional brand identity exploring typography,
+                color, visual consistency, and logo design.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              class="project-image"
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85"
+              alt="Website dashboard and digital analytics"
+              loading="lazy"
+            >
+
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-tag">Web Design</span>
+                <span class="project-number">02 / 04</span>
+              </div>
+
+              <h3>Digital Dashboard</h3>
+              <p>
+                A clean dashboard concept focused on readability,
+                simple navigation, and organized information.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              class="project-image"
+              src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1000&q=85"
+              alt="Social media and content creation"
+              loading="lazy"
+            >
+
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-tag">Social Media</span>
+                <span class="project-number">03 / 04</span>
+              </div>
+
+              <h3>Social Media Campaign</h3>
+              <p>
+                A sample content campaign built around consistent
+                visuals, clear messaging, and audience engagement.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              class="project-image"
+              src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1000&q=85"
+              alt="Workspace for web development"
+              loading="lazy"
+            >
+
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-tag">Development</span>
+                <span class="project-number">04 / 04</span>
+              </div>
+
+              <h3>Personal Website</h3>
+              <p>
+                A responsive portfolio website concept created
+                with HTML and CSS for desktop and mobile screens.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">A little about me</p>
+          <h2>Curious mind.<br>Creative approach.</h2>
+
+          <p>
+            I'm building my skills in design, web development,
+            and digital tools. I enjoy turning ideas into clear,
+            attractive, and practical digital solutions.
+          </p>
+
+          <p>
+            My goal is to help people and businesses communicate
+            better through thoughtful design and technology.
+            I'm always learning and improving through new projects.
+          </p>
+
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">Graphic Design</span>
+            <span class="skill">Web Design</span>
+            <span class="skill">Canva</span>
+            <span class="skill">Communication</span>
+          </div>
+        </div>
+
+        <div class="about-panel">
+          <h3>My approach</h3>
+
+          <div class="stat">
+            <span>Design philosophy</span>
+            <strong>Keep it simple</strong>
+          </div>
+
+          <div class="stat">
+            <span>Core focus</span>
+            <strong>User experience</strong>
+          </div>
+
+          <div class="stat">
+            <span>Learning mindset</span>
+            <strong>Always improving</strong>
+          </div>
+
+          <div class="stat">
+            <span>Project approach</span>
+            <strong>Quality first</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <p class="eyebrow">Have a project in mind?</p>
+          <h2>Let's make something meaningful together.</h2>
+          <p>
+            Have an idea, a project, or an opportunity?
+            I'd love to hear from you.
+          </p>
+        </div>
+
+        <!-- Replace with your real email -->
+        <a
+          class="button"
+          href="mailto:your.email@example.com?subject=Portfolio%20Inquiry"
+        >
+          Email Me ↗
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 Swapnil. Built with HTML & CSS.</p>
+
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/ali-muhammadur-rahman?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://github.com/swapnilalimuhammadurrahman-glitch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">Behance ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
